@@ -1,0 +1,19 @@
+@mixin button-main {
+  background-color: $violet;
+  color: $white;
+}
+
+@mixin button-main-hover {
+  background-color: $violet-light;
+  color: $white;
+}
+
+@mixin button-dark {
+  background-color: #2F3641;
+  color: $white;
+}
+
+@mixin button-dark-hover {
+  background-color: #696E76;
+  color: $white;
+}
