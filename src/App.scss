@@ -3,9 +3,11 @@
 
 * {
   font-family: 'Kumbh Sans',
-  sans-serif;
+    sans-serif;
   font-size: 16px;
   line-height: 26px;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -25,7 +27,8 @@ h3 {
 
 h4 {
   font-size: 14px;
-  line-height: 18px;;
+  line-height: 18px;
+  ;
 }
 
 button {
