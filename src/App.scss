@@ -10,6 +10,15 @@
   padding: 0;
 }
 
+body {
+  background-color: $gray-light;  
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: $dark;
+}
+
 h1 {
   font-size: 28px;
   line-height: 34px;
@@ -39,4 +48,12 @@ button {
 input {
   border: none;
   border-radius: 6px;
+}
+
+.offers-container {
+  max-width: 1110px;
+  margin: 80px auto 56px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 }

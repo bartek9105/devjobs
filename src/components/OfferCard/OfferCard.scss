@@ -1,0 +1,43 @@
+@import '../../App.scss';
+
+.offer {
+  max-width: 350px;
+  background: $white;
+  position: relative;
+  margin-bottom: 65px;
+  padding: 50px 30px 30px 30px;
+  border-radius: 6px;
+  &__logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    position: absolute;
+    top: -30px;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 1px 2px 13px -8px #000000;
+  }
+  &__logo {
+    width: 50px;
+    height: auto;
+  }
+  &__title {
+    margin: 10px 0;
+    font-weight: 400;
+  }
+  &__info {
+    color: $gray-dark;
+  }
+  &__dot {
+    margin: 0 5px;
+  }
+  &__location {
+    display: block;
+    font-size: 14px;
+    color: $violet;
+    margin-top: 20px;
+  }
+}
