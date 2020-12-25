@@ -6,6 +6,8 @@
 @mixin button-main-hover {
   background-color: $violet-light;
   color: $white;
+  cursor: pointer;
+  transition: .2s ease-in-out;
 }
 
 @mixin button-dark {

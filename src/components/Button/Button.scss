@@ -1,0 +1,9 @@
+@import '../../App.scss';
+
+.btn {
+  @include button-main;
+  padding: 16px 32px;
+  &:hover {
+    @include button-main-hover;
+  }
+}

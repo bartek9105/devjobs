@@ -50,10 +50,15 @@ input {
   border-radius: 6px;
 }
 
-.offers-container {
+.offer-cards-container {
   max-width: 1110px;
   margin: 80px auto 56px auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
+}
+
+.offer-button-container {
+  display: flex;
+  justify-content: center;
 }

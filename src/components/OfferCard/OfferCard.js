@@ -5,7 +5,7 @@ const OfferCard = ({ job }) => {
   const { title, type, created_at, location, company_logo, company } = job
   return (
     <section className="offer">
-      <div class="offer__logo-container">
+      <div className="offer__logo-container">
       {company_logo ? 
         <img src={company_logo} alt={title} className="offer__logo" />      
       : null}
