@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './App.scss'
 import Header from './components/Header/Header'
+import Search from './components/Search/Search'
 import OfferCard from './components/OfferCard/OfferCard'
 import Button from './components/Button/Button'
 import Spinner from './components/Spinner/Spinner'
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <Header />
+      <Search />
       { isLoading ?
         <div className="spinner-container">
           <Spinner />

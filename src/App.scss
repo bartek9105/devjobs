@@ -8,6 +8,7 @@
   line-height: 26px;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -47,7 +48,6 @@ button {
 
 input {
   border: none;
-  border-radius: 6px;
 }
 
 .offer-cards-container {
