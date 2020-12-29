@@ -8,16 +8,19 @@ import Button from './components/Button/Button'
 import Spinner from './components/Spinner/Spinner'
 
 function App() {
-  const API_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
+  const API_URL =
+    'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
 
   const [jobs, setJobs] = useState([])
   const [page, setPage] = useState(1)
+  const [location, setLocation] = useState('')
   const [isData, setIsData] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchJobs = async () => {
     try {
-      const fetchedJobs = await axios.get(`${API_URL}?page=${page}`)
+      setJobs([])
+      const fetchedJobs = await axios.get(`${API_URL}?location=${location}?page=${page}`)
       setIsLoading(false)
       if (fetchedJobs.data.length === 0) {
         setIsData(false)
@@ -35,27 +38,25 @@ function App() {
   return (
     <>
       <Header />
-      <Search />
-      { isLoading ?
-        <div className="spinner-container">
+      <Search getLocation={location => setLocation(location)} searchJobs={() => fetchJobs()} />
+      {isLoading ? (
+        <div className='spinner-container'>
           <Spinner />
         </div>
-        :
-        <div className="offer-cards-container">
-          {jobs.map(job => (
-            <OfferCard job={job} key={job.id} />
-          ))}
+      ) : (
+          <div className='offer-cards-container'>
+            {jobs.map((job) => (
+              <OfferCard job={job} key={job.id} />
+            ))}
+          </div>
+        )}
+      {isData && !isLoading ? (
+        <div className='offer-button-container'>
+          <Button btnText='Load More' changePage={() => setPage(page + 1)} />
         </div>
-      }
-      {isData && !isLoading ?
-        <div className="offer-button-container">
-          <Button btnText="Load More" changePage={() => setPage(page + 1)} />
-        </div>
-        :
-        null
-      }
+      ) : null}
     </>
   )
 }
 
-export default App;
+export default App
