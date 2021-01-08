@@ -8,24 +8,25 @@ import Button from './components/Button/Button'
 import Spinner from './components/Spinner/Spinner'
 
 function App() {
-  const API_URL =
-    'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
+  const API_URL = `${process.env.REACT_APP_CORS_ANYWHERE}/https://jobs.github.com/positions.json`
 
   const [jobs, setJobs] = useState([])
   const [page, setPage] = useState(1)
-  const [location, setLocation] = useState('')
+  const [params, setParams] = useState({})
   const [isData, setIsData] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchJobs = async () => {
+    setPage(1)
     try {
-      setJobs([])
-      const fetchedJobs = await axios.get(`${API_URL}?location=${location}?page=${page}`)
+      const fetchedJobs = await axios.get(`${API_URL}`, {
+        params: { page, ...params }
+      })
       setIsLoading(false)
       if (fetchedJobs.data.length === 0) {
         setIsData(false)
       }
-      setJobs([...jobs, ...fetchedJobs.data])
+      setJobs(fetchedJobs.data)
     } catch (error) {
       console.log(error)
     }
@@ -33,12 +34,12 @@ function App() {
 
   useEffect(() => {
     fetchJobs()
-  }, [page])
+  }, [params, page])
 
   return (
     <>
       <Header />
-      <Search getLocation={location => setLocation(location)} searchJobs={() => fetchJobs()} />
+      <Search searchJobs={params => setParams(params)} />
       {isLoading ? (
         <div className='spinner-container'>
           <Spinner />
@@ -50,11 +51,9 @@ function App() {
             ))}
           </div>
         )}
-      {isData && !isLoading ? (
-        <div className='offer-button-container'>
-          <Button btnText='Load More' changePage={() => setPage(page + 1)} />
-        </div>
-      ) : null}
+      <div className='offer-button-container'>
+        <Button btnText='Load More' changePage={() => setPage(page + 1)} />
+      </div>
     </>
   )
 }

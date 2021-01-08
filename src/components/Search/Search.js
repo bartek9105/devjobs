@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import Button from '../Button/Button'
 import '../Search/Search.scss'
 import searchIcon from '../../assets/desktop/icon-search.svg'
 import locationIcon from '../../assets/desktop/icon-location.svg'
 
-const Search = ({ getLocation, searchJobs }) => {
+const Search = ({ searchJobs }) => {
+  const [location, setLocation] = useState('')
+  const [search, setSearch] = useState('')
+  const [isFullTime, setIsFullTime] = useState(false)
+
   const handleFormSubmit = e => {
     e.preventDefault()
-    searchJobs()
+    searchJobs({ location, search, full_time: isFullTime })
   }
 
   return (
@@ -21,6 +26,7 @@ const Search = ({ getLocation, searchJobs }) => {
           type='text'
           placeholder='Filter by title, companies, expertise...'
           className='search-form__input'
+          onChange={e => setSearch(e.target.value)}
         />
       </div>
       <div className='search-form__input-container search-form__location-filter'>
@@ -33,7 +39,7 @@ const Search = ({ getLocation, searchJobs }) => {
           type='text'
           placeholder='Filter by location'
           className='search-form__input search-form__location-filter'
-          onChange={e => getLocation(e.target.value)}
+          onChange={e => setLocation(e.target.value)}
         />
       </div>
       <div className='search-form__input-container search-form__checkbox-container'>
@@ -41,6 +47,7 @@ const Search = ({ getLocation, searchJobs }) => {
           type='checkbox'
           name='full-time'
           className='search-form__input search-form__checkbox'
+          onChange={e => setIsFullTime(e.target.checked)}
         />
         <label htmlFor='full-time' className='search-form__checkbox__label'>
           Full Time Only
