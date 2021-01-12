@@ -1,0 +1,117 @@
+@import '../styles/variables/_colors';
+
+.job-details-header, .job-details-container, .job-details-apply, .job-details-footer-container {
+  max-width: 730px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.job-details-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 40px;
+  top: -40px;
+  &__logo {
+    img {
+      width: 140px;
+      height: auto;
+    }
+  }
+  &__company {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0 40px 40px;
+    &__name {
+      font-size: 24px;
+      font-weight: 400;
+    }
+    &__url {
+      font-size: 16px;
+      color: $gray-dark;
+    }
+  }
+}
+
+.job-details-container {
+  padding: 40px;
+  margin-bottom: 32px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__info {
+      color: $gray-dark;
+      font-size: 16px;
+      &__bullet {
+        margin: 0 10px;
+      }
+    }
+    &__title {
+      font-size: 28px;
+      font-weight: 400;
+      margin: 10px 0;
+    }
+    &__location {
+      font-size: 14px;
+      color: $violet;
+    }
+  }
+  &__description {
+    margin-top: 40px;
+    p, ul {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: $gray-dark;
+      a {
+        color: $gray-dark;
+      }
+    }
+    strong {
+      color: $dark;
+      font-weight: 400;
+    }
+  }
+}
+
+.job-details-apply {
+  margin-bottom: 32px;
+  padding: 48px;
+  background: url('../assets/desktop/bg-pattern-detail-footer.svg') no-repeat;
+  overflow-wrap: break-word;
+  font-size: 16px;
+  p {
+    color: $white;
+  }
+  &__title {
+    color: $white;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+}
+
+.job-details-footer {
+  width: 100%;
+  background: #fff;
+  .job-details-footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    &__title {
+      font-size: 20px;
+      color: $dark;
+    }
+    &__company {
+      font-size: 16px;
+      color: $gray-dark;
+    }
+  }
+}
