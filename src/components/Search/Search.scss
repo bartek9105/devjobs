@@ -10,10 +10,13 @@
 	position: relative;
 	top: -40px;
 	border-radius: 6px;
+	padding: 40px;
 	&__input-container {
 		display: flex;
 		align-items: center;
-		padding-left: 32px;
+		&:not(:nth-of-type(1)) {
+			padding-left: 32px;
+		}
 		&:not(:last-of-type) {
 			border-right: 1px solid $gray-light;
 		}
@@ -34,6 +37,27 @@
 	&__main-filter {
 		width: 100%;
 		max-width: 463px;
+		@media (max-width: 600px) {
+			max-width: none;
+		}
+		&__icon {
+			margin-right: 24px;
+			display: none;
+			@media (max-width: 600px) {
+				display: block;
+			}
+		}
+		&__btn {
+			display: none;
+			align-items: center;
+			justify-content: center;
+			border-radius: 6px;
+			background-color: $violet;
+			padding: 14px;
+			@media (max-width: 600px) {
+				display: flex;
+			}
+		}
 	}
 	&__location-filter {
 		width: 100%;
@@ -43,8 +67,6 @@
 		}
 	}
 	&__checkbox-container {
-		width: 100%;
-		max-width: 345px;
 		@media (max-width: 600px) {
 			display: none;
 		}
