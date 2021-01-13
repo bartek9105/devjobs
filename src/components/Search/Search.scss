@@ -1,54 +1,60 @@
 @import '../../styles/variables/colors';
 
 .search-form {
-  display: flex;
-  align-items: center;
-  max-width: 1110px;
-  margin: 0 auto;
-  height: 80px;
-  background-color: $white;
-  position: relative;
-  top: -40px;
-  border-radius: 6px;
-  &__input-container {
-    display: flex;
-    align-items: center;
-    padding-left: 32px;
-    &:not(:last-of-type) {
-      border-right: 1px solid $gray-light;
-    }
-  }
-  &__input {
-    height: 80px;
-    position: relative;
-    width: 100%;
-    padding: 0 8px;
-    text-overflow: ellipsis;
-    &__icon {
-      margin-right: 8px;
-    }
-    &::placeholder {
-      color: $gray-placeholder;
-    }
-  }
-  &__main-filter {
-    width: 100%;
-    max-width: 463px;
-  }
-  &__location-filter {
-    width: 100%;
-    max-width: 300px;
-  }
-  &__checkbox-container {
-    width: 100%;
-    max-width: 345px;
-  }
-  &__checkbox {
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    &__label {
-      margin-right: 32px;
-    }
-  }
+	display: flex;
+	align-items: center;
+	max-width: 1110px;
+	margin: 0 auto;
+	height: 80px;
+	background-color: $white;
+	position: relative;
+	top: -40px;
+	border-radius: 6px;
+	&__input-container {
+		display: flex;
+		align-items: center;
+		padding-left: 32px;
+		&:not(:last-of-type) {
+			border-right: 1px solid $gray-light;
+		}
+	}
+	&__input {
+		height: 80px;
+		position: relative;
+		width: 100%;
+		padding: 0 8px;
+		text-overflow: ellipsis;
+		&__icon {
+			margin-right: 8px;
+		}
+		&::placeholder {
+			color: $gray-placeholder;
+		}
+	}
+	&__main-filter {
+		width: 100%;
+		max-width: 463px;
+	}
+	&__location-filter {
+		width: 100%;
+		max-width: 300px;
+		@media (max-width: 600px) {
+			display: none;
+		}
+	}
+	&__checkbox-container {
+		width: 100%;
+		max-width: 345px;
+		@media (max-width: 600px) {
+			display: none;
+		}
+	}
+	&__checkbox {
+		width: 24px;
+		height: 24px;
+		margin-right: 16px;
+		&__label {
+			margin-right: 32px;
+		}
+	}
 }
